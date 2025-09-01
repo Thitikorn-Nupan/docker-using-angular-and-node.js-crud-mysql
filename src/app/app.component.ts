@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'build-basic-webapp-using-angular-2';
+  protected title : string = 'Angular + Node.js deploy on Docker'
+  protected routerLinks : {label : string , route : string} [] = [
+    {label:'Home',route:''},
+    {label:'Books Table',route:'table'},
+    {label:'Books Form',route:''},
+  ]
 }

@@ -1,14 +1,9 @@
-import MyLog from "../log/my.log.js";
 import {connectDatabaseObject} from "../config/connect.database.js";
 
 class Romance {
-  constructor() {
-    this.myLog = new MyLog()
-    this.myLog.log.info('Romance class is created')
-  }
   get romance () {
     return connectDatabaseObject.sequelizeConnect.define(
-      'romance' , {
+      'romances' , {
         rid : {
           type : connectDatabaseObject.sequelize.STRING ,
           primaryKey: true

@@ -1,22 +1,24 @@
-import MyLog from "../log/my.log.js";
+import LogConfig from "../log/logConfig.js";
 import sequelize from "sequelize";
 
+
 class ConnectDatabase {
-  myLog = null
+  logConfig = null
+
   constructor() {
-    this.myLog = new MyLog()
-    this.myLog.log.info('ConnectDatabase class is created')
+    this.logConfig = new LogConfig()
   }
+
   get sequelizeConnect() {
     return new sequelize(
-      "bookstore",
-      "ttknpde-v",
-      "12345",
+      'books',
+      'ttknp',
+      '12345',
       {
-        /* set different port */
         dialect: 'mysql',
-        host: "database",
-        port: "3306",
+        host: 'host.docker.internal', // fix error connect ECONNREFUSED 172.21.0.2:3307 why it can't connect by service name
+        // host: 'database', // can't access *** maybe you have to set permission
+        port: '3307',
         pool: {
           max: 5,
           min: 0,
@@ -28,14 +30,6 @@ class ConnectDatabase {
   }
 }
 
-/*
-const connectDatabase = new ConnectDatabase()
-connectDatabase.sequelizeConnect.authenticate().then(() => {
-  connectDatabase.myLog.log.info('connected successfully!!')
-}).catch((error) => {
-  throw error
-})
-*/
 
 const connectDatabase = new ConnectDatabase()
 export const connectDatabaseObject = {

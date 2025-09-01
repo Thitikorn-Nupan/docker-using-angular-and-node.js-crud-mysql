@@ -4,26 +4,23 @@ services:
     container_name: mysql # define container name
     restart: always # I ask docker-compose.yml to always restart this container if it fails.
     image: mysql
-    environment:
-      - MYSQL_DATABASE=bookstore
-      - MYSQL_ROOT_PASSWORD=54321
-      - MYSQL_USER=ttknpde-v
-      - MYSQL_PASSWORD=12345
+    environment: # set up database config
+      - MYSQL_DATABASE=${DATABASE}
+      - MYSQL_ROOT_PASSWORD=${ROOT_PASSWORD}
+      - MYSQL_USER=${USER}
+      - MYSQL_PASSWORD=${PASSWORD}
     ports:
-      - '3307:3306'
+      - '3307:${PORT}'
     volumes:
       # second way use with your volume for storing data (use volume name instead folder name)
       - information-database:/var/lib/mysql
-    #env_file:
-      #- .env
+    env_file: # Use the env_file attribute for config .env files (this case name should be .env)
+      - .env
 
 volumes: # for storing value on container (can call service in backend part)
-  # like volumes:
-  #      - information-database:/var/lib/mysql
+  # - information-database:/var/lib/mysql
+  # same result as information-database:
   information-database: # define volume name
     driver: local # use only current pc
 
-# networks for spring boot
-# networks: # It's Importance. Create a docker network to communicate Spring boot application and MySQL database
-  # Here springboot-mysql-net is the network name.
-  # springboot-network:
+

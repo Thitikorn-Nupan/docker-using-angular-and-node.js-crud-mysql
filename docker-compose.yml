@@ -1,13 +1,13 @@
+# docker compose with extends docker compose files
+# so weir ! i can't run on build-basic-webapp-using-angular-and-node but can run on build-basic-webapp-using-angular-and-node/backend
 version: '3'
-# can extends service that you need
-# remember you can use the same service name
-# As backend service is not api service
 services:
-
   backend:
+    # can extends service that you need
     extends:
+      # specify file
       file: backend/docker-compose-backend.yml
-      # container name api
+      # specify service that you want to map, Remember you can use the same service name
       service: backend
 
   database:
@@ -22,7 +22,5 @@ services:
 
 # have to set it again because it can't see
 volumes: # for storing value on container (can call service in backend part)
-  # like volumes:
-  #      - information-database:/var/lib/mysql
   information-database: # define volume name
     driver: local # use only current pc

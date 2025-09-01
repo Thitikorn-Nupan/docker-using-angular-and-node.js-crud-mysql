@@ -9,5 +9,5 @@ services:
     ports:
       # user can access that 4000 port
       - '4000:4200'
-    stdin_open: true # stdin_open and tty: keep open the terminal after building container
-    tty: true
+#    stdin_open: true # stdin_open and tty: keep open the terminal after building container
+#    tty: true

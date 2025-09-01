@@ -15,8 +15,8 @@ RUN npm install
 COPY ../../ .
 
 # set port inside container
-EXPOSE 3000
+EXPOSE 3232
 
 # Now I have to do is to tell Docker what command I want to run when our image is run inside of a container.
-#
+
 CMD [ "npm", "start" ]

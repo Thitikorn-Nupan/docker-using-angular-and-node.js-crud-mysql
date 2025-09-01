@@ -1,10 +1,9 @@
-interface Romance { // for take a value from json text
+export interface Romance {
   rid : number,
   title : string ,
   price : number
 }
 
-
-export {
-  Romance
-}
+// export {
+//   Romance
+// }

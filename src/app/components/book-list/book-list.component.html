@@ -1,42 +1,36 @@
-<div class="container" style="margin: 0 auto;">
-
-  <h2 class="text-center p-4 mt-4">Employee List</h2>
-
-  <table class="table">
-    <thead class="table-dark">
-    <tr>
-      <th scope="col">Order</th>
-      <th scope="col">Title</th>
-      <th scope="col">Price</th>
-      <th class="text-center" scope="col">Action</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr *ngFor="
-    let romances of getRomances;
-    let i = index; ">
-      <th scope="row">{{i+1}}</th>
-      <td>{{romances.title}}</td>
-      <td>{{romances.price}}</td>
-      <td class="text-center">
-        <!-- use ActivatedRoute class for retrieve tid param on path // routerLink="/editing/{{tutorial.tid}}" -->
-        <!-- new path just use / -->
-        <button class="btn btn-sm btn-dark p-2 m-lg-1">Edit</button>
-        <!-- when clicked it had sent delete method for delete by pk //  (click)="delete(tutorial.tid , i)" -->
-        <button class="btn btn-sm btn-warning p-2">Delete</button>
-    </tr>
-    </tbody>
-
-    <tfoot>
-    <tr>
-      <td colspan="3"></td>
-      <td class="text-center">
-        <button class="btn btn-sm btn-danger p-2">Delete All</button>
-      </td>
-    </tr>
-    </tfoot>
-
-  </table>
-
-</div>
+<ng-container *ngIf="getRomances">
+  <div class="container" style="margin: 0 auto;">
+    <h2 class="text-center p-4 mt-4">{{ title }}</h2>
+    <table class="table">
+      <thead class="table-dark">
+      <tr>
+        <th>Order</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th class="text-center">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor="let romances of getRomances;let i = index;">
+        <tr>
+          <th scope="row">{{i+1}}</th>
+          <td>{{romances.title}}</td>
+          <td>{{romances.price}}</td>
+          <td class="btn-group w-100">
+            <button class="btn btn-sm btn-dark p-2">Edit</button>
+            <button class="btn btn-sm btn-warning p-2">Delete</button>
+          </td>
+        </tr>
+      </ng-container>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="3"></td>
+        <td>
+          <button class="btn btn-sm btn-danger p-2 w-100">Delete All</button>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+</ng-container>

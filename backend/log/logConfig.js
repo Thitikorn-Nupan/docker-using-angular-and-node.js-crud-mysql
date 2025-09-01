@@ -2,8 +2,7 @@ import path from 'path'
 import process from 'process'
 import {createLogger, format, transports} from 'winston'
 
-class MyLog {
-
+class LogConfig {
   log
 
   constructor() {
@@ -20,9 +19,8 @@ class MyLog {
       ),
       transports: [new transports.Console]
     })
-  } // ended
-
+  }
 }
 
 
-export default MyLog // when use just import my.logging.ts then can call any method for logging
+export default LogConfig // when use just import my.logging.ts then can call any method for logging

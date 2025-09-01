@@ -1,6 +1,6 @@
 # www.youtube.com/watch?v=MbA71IuYUhg solution
 FROM node:18.14.1 as angular
-LABEL authors="ttknpde-v"
+LABEL authors="ttknp"
 
 WORKDIR /usr/src/app
 
