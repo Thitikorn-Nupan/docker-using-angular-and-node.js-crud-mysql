@@ -1,12 +1,13 @@
 # first tell base image to docker file (runtime that you work)
 FROM node:18.14.1
-LABEL authors="ttknpde-v"
+LABEL authors="ttknp"
 
 # default should set like below
 WORKDIR /usr/src/app
 
 # copy package.json file to /usr/src/app
 COPY ../../package.json ./
+COPY ../../.env ./
 
 # skip npm init because I did
 RUN npm install
