@@ -1,6 +1,6 @@
-# docker compose with extends docker compose files
-# so weir ! i can't run on build-basic-webapp-using-angular-and-node but can run on build-basic-webapp-using-angular-and-node/backend
+# docker compose with extends docker compose files # so weir ! i can't run on build-basic-webapp-using-angular-and-node but can run on build-basic-webapp-using-angular-and-node/backend
 version: '3'
+
 services:
   backend:
     # can extends service that you need

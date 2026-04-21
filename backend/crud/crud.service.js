@@ -1,5 +1,5 @@
 import Romance from "../entity/romance.js";
-import LogConfig from "../log/logConfig.js";
+import LogConfig from "../log/log.config.js";
 
 class CrudService {
   logConfig = null

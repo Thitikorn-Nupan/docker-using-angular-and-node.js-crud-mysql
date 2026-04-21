@@ -15,7 +15,7 @@ services:
       # second way use with your volume for storing data (use volume name instead folder name)
       - information-database:/var/lib/mysql
     env_file: # Use the env_file attribute for config .env files (this case name should be .env)
-      - .env
+      - ./.env # run tru B:\practice-docker\build-basic-webapp-using-angular-and-node\docker-compose.yml it'll start on B:\practice-docker\build-basic-webapp-using-angular-and-node\
 
 volumes: # for storing value on container (can call service in backend part)
   # - information-database:/var/lib/mysql

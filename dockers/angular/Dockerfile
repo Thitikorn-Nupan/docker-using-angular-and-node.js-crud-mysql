@@ -13,11 +13,10 @@ COPY package.json package-lock.json /usr/src/app/
 
 RUN npm install
 
-# first (.) means Where I am now
+# cp all to rarget
 COPY . /usr/src/app
 
 EXPOSE 4200
 
-# command run utill has interupt
-# it means that it can be accessed via all the IP addresses on all interfaces on the machine, including 127.0. 0.1
+# command run utill has interupt # it means that it can be accessed via all the IP addresses on all interfaces on the machine, including 127.0. 0.1
 CMD /usr/src/app/node_modules/.bin/ng serve --host 0.0.0.0

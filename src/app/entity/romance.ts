@@ -3,7 +3,3 @@ export interface Romance {
   title : string ,
   price : number
 }
-
-// export {
-//   Romance
-// }

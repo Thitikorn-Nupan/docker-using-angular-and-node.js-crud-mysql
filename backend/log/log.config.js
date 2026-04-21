@@ -3,6 +3,7 @@ import process from 'process'
 import {createLogger, format, transports} from 'winston'
 
 class LogConfig {
+
   log
 
   constructor() {

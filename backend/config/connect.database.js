@@ -1,8 +1,17 @@
-import LogConfig from "../log/logConfig.js";
+import LogConfig from "../log/log.config.js";
 import sequelize from "sequelize";
 import path from "path";
 import dotenv from "dotenv"
 
+/**
+   you don't forget
+   you set WORKDIR /usr/src/app
+   means any file that you add to container
+   they're on it !!
+   So .env you should access to /usr/src/app/.env Right ?
+   it is not run on your current path pc
+   log.info(path.resolve('../app/.env'))
+ */
 dotenv.config({ path: path.resolve('.env'),debug:true })
 
 class ConnectDatabase {
@@ -19,8 +28,8 @@ class ConnectDatabase {
       process.env.PASSWORD,
       {
         dialect: 'mysql',
-        host: 'host.docker.internal', // fix error connect ECONNREFUSED 172.21.0.2:3307 why it can't connect by service name
-        // host: 'database', // can't access *** maybe you have to set permission
+        // host: '127.0.0.1', // local connect docker container
+        host: 'host.docker.internal', //
         port: process.env.PORT_OUTSIDE,
         pool: {
           max: 5,

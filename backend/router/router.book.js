@@ -1,5 +1,5 @@
-import LogConfig from "../log/logConfig.js"; // class
 import {modulesApiObject} from "../service/modules.api.service.js"; // object (ready to use)
+import LogConfig from "../log/log.config.js"; // class
 import CrudService from "../crud/crud.service.js";
 
 class RouterBook {
@@ -10,12 +10,12 @@ class RouterBook {
 
   constructor() {
     /*
-    *** a Port should follow angular port that you set it on docker (Port that you exposed)
-    cors provides Express middleware to enable CORS with various options.
-    CORS (Cross-Origin Resource Sharing) คือ กลไกที่ทำให้ server สามารถกำหนดสิทธิการเข้าถึงทรัพยากรได้ เมื่อมีเว็บไซต์ที่มี origin (domain) อื่น ใช้ HTTP request มายัง server
-    ** in this case 3000 port I use it for back end
-    ** corsOptions เพื่อบอกว่าจะอนุญาต domain ไหนสามารถ sent http method ได้
-    ** angular default 4200 but my container I exposed 4000
+      *** a Port should follow angular port that you set it on docker (Port that you exposed)
+      cors provides Express middleware to enable CORS with various options.
+      CORS (Cross-Origin Resource Sharing) คือ กลไกที่ทำให้ server สามารถกำหนดสิทธิการเข้าถึงทรัพยากรได้ เมื่อมีเว็บไซต์ที่มี origin (domain) อื่น ใช้ HTTP request มายัง server
+      ** in this case 3000 port I use it for back end
+      ** corsOptions เพื่อบอกว่าจะอนุญาต domain ไหนสามารถ sent http method ได้
+      ** angular default 4200 but my container I exposed 4000
     */
     const corsOptions = {
       origin: 'http://localhost:4000'
@@ -24,12 +24,11 @@ class RouterBook {
     this.routerRomance = modulesApiObject.router
     this.routerRomance.use(modulesApiObject.bodyParser.json())
     this.routerRomance.use(modulesApiObject.bodyParser.urlencoded({extended: true}))
-    this.routerRomance.use(modulesApiObject.cors(corsOptions)) /* setting cross http */
+    this.routerRomance.use(modulesApiObject.cors(corsOptions)) // setting cross http
     this.crud = new CrudService()
   }
 
   get getRouterRomance() {
-
     this.routerRomance.get('/reads', async (req, res) => {
       try {
         await this.crud.reads().then((result) => {
@@ -46,9 +45,7 @@ class RouterBook {
         throw e
       }
     })
-
     return this.routerRomance
-
   }
 }
 

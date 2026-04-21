@@ -7,19 +7,25 @@
       <div class=" collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto ">
           <li class="nav-item p-lg-3">
-            <a class="nav-link mx-2"  style="color: black;cursor: pointer;" [routerLink]="routerLinks[0].route" >{{ routerLinks[0].label }}</a>
+            <a class="nav-link mx-2" style="color: black;cursor: pointer;" [routerLink]="routerLinks[0].route">{{ routerLinks[0].label }}</a>
           </li>
           <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
             <ul class="navbar-nav">
               <li class="nav-item dropdown p-lg-3">
-                <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black">
-                  Book choose
+                <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false" style="color: black">
+                  Book option
                 </a>
-                <ul class="dropdown-menu dropdown-menu-dark bg-primary-subtle" aria-labelledby="navbarDarkDropdownMenuLink">
+                <ul class="dropdown-menu dropdown-menu-dark bg-primary-subtle"
+                    aria-labelledby="navbarDarkDropdownMenuLink">
                   <ng-container *ngFor="let routerLink of routerLinks;let index = index">
-                    <ng-container *ngIf="index > 0">
-                      <li><a class="dropdown-item" style="padding: 5px 35px; color: black; cursor: pointer;" [routerLink]="routerLink.route">{{routerLink.label}}</a></li>
-                    </ng-container>
+                    <li *ngIf="index > 0">
+                      <a class="dropdown-item"
+                         style="padding: 5px 35px; color: black; cursor: pointer;"
+                         [routerLink]="routerLink.route">
+                        {{ routerLink.label }}
+                      </a>
+                    </li>
                   </ng-container>
                 </ul>
               </li>

@@ -1,4 +1,4 @@
-import LogConfig from "../log/logConfig.js";
+import LogConfig from "../log/log.config.js";
 import RouterBook from "../router/router.book.js";
 import {modulesApiObject} from "../service/modules.api.service.js";
 

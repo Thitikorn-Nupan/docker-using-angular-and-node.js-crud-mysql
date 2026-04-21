@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  protected title : string = 'Angular + Node.js deploy on Docker'
-  protected routerLinks : {label : string , route : string} [] = [
-    {label:'Home',route:''},
-    {label:'Books Table',route:'table'},
-    {label:'Books Form',route:''},
+  protected title: string = 'Angular + Node.js deploy on Docker'
+  protected routerLinks: { label: string, route: string } [] = [
+    {label: 'Home', route: ''},
+    {label: 'Books Table', route: 'table'},
+    {label: 'Books Form', route: ''},
   ]
 }
